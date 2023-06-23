@@ -1,4 +1,5 @@
 <template>
+  Actions View
 </template>
 
 <script setup lang="ts">

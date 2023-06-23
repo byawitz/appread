@@ -1,4 +1,5 @@
 <template>
+  Servers View
 </template>
 
 <script setup lang="ts">

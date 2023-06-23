@@ -1,0 +1,73 @@
+html, body {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+
+  #wrapper {
+    display: flex;
+    height: 100%;
+
+    > main {
+      overflow-y: scroll;
+      width: 100%;
+      background-color: #1c1f26;
+      padding: 25px;
+
+    }
+
+  }
+
+  div#footer {
+    text-align: center;
+    padding: 10px;
+    color: #d3edf6;
+  }
+}
+
+div#wrapper {
+  display: flex;
+}
+
+div#sidebar {
+  background-color: #242836;
+  min-width: 100px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 1px 1px #00000061;
+  z-index: 1;
+
+  div#menu-items {
+    flex: 1;
+
+    .menu-item {
+      border-bottom: 1px solid rgba(211, 237, 246, 0.2784313725);
+      display: flex;
+      padding: 20px 10px;
+      gap: 10px;
+      color: #d3edf6;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &:hover:not(.selected) {
+        background-color: #1c1f26;
+      }
+
+      &.selected {
+        background-color: #14141e;
+      }
+
+      i {
+        font-size: 25px;
+      }
+    }
+
+  }
+}
+
+
+

@@ -2,6 +2,7 @@
 import {onMounted, watch} from "vue";
 import SideBar from "@/components/SideBar.vue";
 import {useAppState} from "@/stores/State";
+import Server from "@/models/Server";
 
 const state = useAppState();
 

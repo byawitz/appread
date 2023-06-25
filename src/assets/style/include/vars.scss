@@ -5,14 +5,19 @@ $appwrite: #f02e64;
   --text-color: #abb3b6;
   --dark-background: #14141e;
   --border-color: #343a40;
+
+  --color-success: #5bd9ac;
+  --color-danger: #d95b5b;
+  --color-primary: #4361ee;
 }
 
 .light {
   --background-color: white;
   --second-background-color: #efefef;
   --text-color: #14141e;
-
   --dark-background: #c7c7c7;
   --border-color: #d8d8d8;
+
+  --color-success: #2fd096;
 
 }

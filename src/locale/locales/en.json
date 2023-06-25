@@ -11,5 +11,12 @@
   "Language": "Language",
   "chooseTheme": "Choose Theme",
   "darkDefault": "Dark (default)",
-  "light": "Light"
+  "light": "Light",
+  "No :items: found": "No :items: found",
+  "You can start by add one": "You can start by add one",
+  "server": "Server",
+  "title": "Title",
+  "url": "URL",
+  "Appwrite_version": "Appwrite version",
+  "Add": "Add"
 }

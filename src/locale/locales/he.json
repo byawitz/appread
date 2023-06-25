@@ -11,5 +11,12 @@
   "Language": "שפה",
   "chooseTheme": "בחירת ערכת נושא",
   "darkDefault": "כהה (ברירת מחדל)",
-  "light": "בהירה"
+  "light": "בהירה",
+  "No :items: found": "לא נמצאו :items:",
+  "You can start by add one": "התחילו ביצירה של אחד",
+  "server": "שרת",
+  "title": "שם",
+  "url": "כתובת URL",
+  "Appwrite_version": "גרסת Appwrite",
+  "Add": "הוספת"
 }

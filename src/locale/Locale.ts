@@ -7,6 +7,8 @@ const LOCALE_KEY = 'locale';
 const LOCALE_EN = 'en';
 const LOCALE_HE = 'he';
 
+declare type LocaleReplaces = { what: string, replace: string };
+
 export default class Locale {
     public static availableLocales: Record<string, SingleLocale> = {
         [LOCALE_EN]: new SingleLocale(LOCALE_EN, 'English', en),
@@ -21,6 +23,16 @@ export default class Locale {
 
     public static locale(str: string): string {
         return this.availableLocales[this.currentLocale].localeStrings[str] ?? str;
+    }
+
+    public static localeReplace(str: string, replaces: LocaleReplaces[]): string {
+        let translated = this.availableLocales[this.currentLocale].localeStrings[str] ?? str;
+
+        replaces.forEach((replace) => {
+            translated = translated.replace(replace.what, replace.replace)
+        })
+
+        return translated;
     }
 
     public static setLocale(locale: string) {

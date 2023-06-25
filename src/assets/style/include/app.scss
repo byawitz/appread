@@ -191,3 +191,61 @@ div#home {
     }
   }
 }
+
+
+.btn {
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid;
+  cursor: pointer;
+
+  &.btn-text{
+    width: unset;
+    height: unset;
+  }
+
+  &.btn-green {
+    border-color: var(--color-success);
+    color: var(--color-success);
+
+    &:hover {
+      background-color: var(--color-success);
+      color: var(--background-color);
+    }
+  }
+
+  &.btn-red {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+
+    &:hover {
+      background-color: var(--color-danger);
+      color: var(--background-color);
+    }
+  }
+
+  &.btn-blue {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--background-color);
+    }
+  }
+}
+
+.code {
+  display: inline-block;
+  background-color: var(--dark-background);
+  padding: 3px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border-color);
+}
+

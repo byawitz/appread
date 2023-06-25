@@ -1,7 +1,7 @@
 *:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
   all: unset;
   display: revert;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Heebo', sans-serif;
 }
 
 *,

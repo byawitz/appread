@@ -1,10 +1,21 @@
 <script setup lang="ts">
-import {onMounted} from "vue";
+import {onMounted, watch} from "vue";
 import SideBar from "@/components/SideBar.vue";
+import {useAppState} from "@/stores/State";
+
+const state = useAppState();
+
+function setTheme() {
+  document.querySelector('body')!.classList.toggle('light', state.app.isLightTheme);
+}
+
+watch(state.app, setTheme)
 
 onMounted(async () => {
-  console.log('Here we go');
-})
+  setTheme();
+});
+
+
 </script>
 
 <template>

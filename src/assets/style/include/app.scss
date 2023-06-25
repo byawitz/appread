@@ -2,6 +2,10 @@ html, body {
   height: 100%;
 }
 
+b {
+  font-weight: bold;
+}
+
 #app {
   height: 100%;
 
@@ -12,17 +16,19 @@ html, body {
     > main {
       overflow-y: scroll;
       width: 100%;
-      background-color: #1c1f26;
+      background-color: var(--background-color);
       padding: 25px;
-
+      color: var(--text-color);
     }
 
   }
 
-  div#footer {
+  div#sidebar-footer {
     text-align: center;
     padding: 10px;
-    color: #d3edf6;
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+
   }
 }
 
@@ -31,43 +37,157 @@ div#wrapper {
 }
 
 div#sidebar {
-  background-color: #242836;
+  background-color: var(--second-background-color);
   min-width: 100px;
   max-width: 100px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 3px 1px 1px #00000061;
+  border-right: 1px solid var(--border-color);
   z-index: 1;
 
   div#menu-items {
     flex: 1;
 
     .menu-item {
-      border-bottom: 1px solid rgba(211, 237, 246, 0.2784313725);
       display: flex;
-      padding: 20px 10px;
-      gap: 10px;
-      color: #d3edf6;
+      margin: 5px;
+      padding: 13px 10px;
+      gap: 5px;
+      color: var(--text-color);
       cursor: pointer;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      font-size: 15px;
+      border-radius: 8px;
 
       &:hover:not(.selected) {
-        background-color: #1c1f26;
+        background-color: var(--dark-background);
       }
 
       &.selected {
-        background-color: #14141e;
+        background-color: var(--background-color);
       }
 
-      i {
-        font-size: 25px;
-      }
     }
 
   }
 }
 
+div#home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  div#welcome {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+
+    h1 {
+      font-size: 50px;
+    }
+
+    h4 {
+      font-size: 22px;
+      background-color: var(--second-background-color);
+      padding: 10px 20px;
+      border-radius: 18px;
+      margin-top: 15px;
+      border: 1px solid var(--border-color);
+
+      a {
+        background-color: $appwrite;
+        padding: 5px 15px;
+        border-radius: 7px;
+        color: white;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+  }
+
+  div#home-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    .home-box {
+      width: 24%;
+      display: flex;
+      background-color: var(--second-background-color);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      padding: 30px;
+      color: var(--text-color);
+
+      .hb-icon {
+        margin-inline-end: 10px;
+        display: flex;
+        background-color: var(--background-color);
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        width: 55px;
+      }
+
+      .hb-titles {
+        h3 {
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+
+        h4 {
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            color: $appwrite;
+            font-weight: bold;
+          }
+        }
+
+      }
+    }
+  }
+}
 
 
+.ar-form {
+  h1 {
+    font-size: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .ar-form-block {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+
+    label {
+      width: 250px;
+      display: block;
+      font-size: 20px;
+    }
+
+    select {
+      width: 200px;
+      background-color: var(--second-background-color);
+      padding: 8px 16px;
+      border-radius: 5px;
+      position: relative;
+    }
+  }
+}

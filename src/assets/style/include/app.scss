@@ -14,6 +14,7 @@ b {
     height: 100%;
 
     > main {
+      @include scrollbars(5px, var(--border-color), var(--dark-background));
       overflow-y: scroll;
       width: 100%;
       background-color: var(--background-color);

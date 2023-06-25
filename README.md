@@ -1,6 +1,6 @@
-![Square284x284Logo.png](./src-tauri/icons/128x128.png)
-
 # Appread
+
+![appread.jpg](./assets/appread.jpg)
 
 ## All-in-one Appwrite SDKs tester
 

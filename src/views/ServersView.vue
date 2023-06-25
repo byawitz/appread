@@ -1,8 +1,47 @@
 <template>
-  Servers View
+  <CoverUp :show="show" @close="show = false">
+    <ServerForm :server="server"/>
+  </CoverUp>
+  <NoPagesTable
+      :data="state.app.servers"
+      :headings="Server.headings()"
+      :data-fields="Server.dataFields()"
+
+      :resource-name="Locale.locale('server')"
+      :resource-name-plural="Locale.locale('servers')"
+
+      @edit="editServer"
+      @create="createServer"
+      @delete="deleteServer"
+  />
 </template>
 
 <script setup lang="ts">
+import NoPagesTable from "@/components/NoPagesTable.vue";
+import Locale from "@/locale/Locale";
+import {useAppState} from "@/stores/State";
+import Server from "@/models/Server";
+import CoverUp from "@/components/CoverUp.vue";
+import {ref} from "vue";
+import ServerForm from "@/sub-views/ServerForm.vue";
+
+const show   = ref(false);
+const server = ref(new Server('Cloud', 'cloud.appwrite.io'));
+const state  = useAppState();
+
+function createServer() {
+  show.value = !show.value
+}
+
+function editServer(title: string) {
+  console.log(`Edit ${title}`);
+}
+
+function deleteServer(title: string) {
+  state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
+}
+
+console.log(state.app.servers);
 </script>
 
 <style scoped>

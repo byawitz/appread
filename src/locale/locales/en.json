@@ -18,5 +18,6 @@
   "title": "Title",
   "url": "URL",
   "Appwrite_version": "Appwrite version",
-  "Add": "Add"
+  "Add": "Add",
+  "close": "Close"
 }

@@ -9,6 +9,7 @@ export default class Helper {
         url = url.replace('http://', '');
         url = url.replace('https://', '');
         url = url.replace(/\/.+/g, '');
+        url = url.replace(/\/+$/g, '');
 
         return `${url}/v1`;
     }

@@ -1,5 +1,5 @@
 <template>
-  <div id="cover-up" @keyup.enter="emits('close')">
+  <div id="cover-up">
     <Transition name="cover">
       <div id="cover" v-if="show">
         <div id="cover-head">
@@ -88,7 +88,7 @@ div#cover {
   justify-content: space-between;
 
   > div {
-    padding: 1%;
+    padding: 2% 3%;
   }
 
   #cover-head {

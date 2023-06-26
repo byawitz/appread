@@ -1,6 +1,6 @@
 <template>
   <CoverUp :show="showForm" @close="showForm = false">
-    <ServerForm :server="server"/>
+    <ServerForm :server="server" @close="showForm = false"/>
   </CoverUp>
 
   <NoPagesTable
@@ -12,7 +12,7 @@
       :resource-name-plural="Locale.locale('servers')"
 
       @edit="editServer"
-      @create="showForm = !showForm"
+      @create="createServer"
       @delete="deleteServer"
   />
 </template>
@@ -26,13 +26,22 @@ import CoverUp from "@/components/CoverUp.vue";
 import {ref} from "vue";
 import ServerForm from "@/sub-views/ServerForm.vue";
 
+
 const showForm = ref(false);
-const server   = ref(new Server('', ''));
+const server   = ref<Server>(new Server());
 
 const state = useAppState();
 
+function createServer() {
+  server.value   = new Server();
+  showForm.value = !showForm.value
+  ;
+
+}
+
 function editServer(title: string) {
-  console.log(`Edit ${title}`);
+  server.value   = state.app.servers.find(server => server.title === title) ?? new Server();
+  showForm.value = true;
 }
 
 function deleteServer(title: string) {

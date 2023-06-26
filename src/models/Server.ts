@@ -1,5 +1,4 @@
 import Locale from "@/locale/Locale";
-import Helper from "@/utils/Helper";
 
 export default class Server {
     public title: string;
@@ -17,10 +16,8 @@ export default class Server {
 
 
     public async checkAppwrite(): Promise<boolean> {
-        const appwrite = Helper.getAppwriteEndpoint(this.endpoint)
-
         try {
-            const res  = await fetch(`https://${appwrite}/health/version`);
+            const res  = await fetch(`${this.https ? 'https' : 'http'}://${this.endpoint}/health/version`);
             const json = await res.json();
 
             if (json['version']) {

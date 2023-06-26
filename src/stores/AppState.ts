@@ -4,11 +4,11 @@ import type Action from "@/models/Action";
 import type Flow from "@/models/Flow";
 
 export default class AppState {
-    public actions: Action[] = [];
     public flows: Flow[]     = [];
+    public actions: Action[] = [];
 
-    public projects: Project[] = [];
     public servers: Server[]   = [];
+    public projects: Project[] = [];
 
     public isLightTheme = false;
 }

@@ -3,13 +3,16 @@ import Helper from "@/utils/Helper";
 
 export default class Server {
     public title: string;
+    public https: boolean;
+    public version: string;
     public endpoint: string;
-    public version: string = '';
 
 
-    constructor(title: string = '', endpoint: string = '') {
+    constructor(title: string = '', endpoint: string = '', https = true) {
         this.title    = title;
         this.endpoint = endpoint;
+        this.version  = '';
+        this.https    = https;
     }
 
 
@@ -17,8 +20,9 @@ export default class Server {
         const appwrite = Helper.getAppwriteEndpoint(this.endpoint)
 
         try {
-            const res  = await fetch(`https://${appwrite}/health/version`)
+            const res  = await fetch(`https://${appwrite}/health/version`);
             const json = await res.json();
+
             if (json['version']) {
                 this.version = json['version'];
                 return true;
@@ -35,6 +39,7 @@ export default class Server {
             Locale.locale('title'),
             Locale.locale('url'),
             Locale.locale('Appwrite_version'),
+            Locale.locale('secure'),
         ];
     }
 
@@ -42,7 +47,8 @@ export default class Server {
         return [
             'title',
             'endpoint',
-            'version'
+            'version',
+            'secure'
         ];
     }
 }

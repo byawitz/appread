@@ -19,5 +19,6 @@
   "url": "URL",
   "Appwrite_version": "Appwrite version",
   "Add": "Add",
-  "close": "Close"
+  "close": "Close",
+  "secure": "Secure"
 }

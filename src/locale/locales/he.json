@@ -18,5 +18,7 @@
   "title": "שם",
   "url": "כתובת URL",
   "Appwrite_version": "גרסת Appwrite",
-  "Add": "הוספת"
+  "Add": "הוספת",
+  "close": "סגירה",
+  "secure": "מאובטח"
 }

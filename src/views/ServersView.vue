@@ -1,7 +1,8 @@
 <template>
-  <CoverUp :show="show" @close="show = false">
+  <CoverUp :show="showForm" @close="showForm = false">
     <ServerForm :server="server"/>
   </CoverUp>
+
   <NoPagesTable
       :data="state.app.servers"
       :headings="Server.headings()"
@@ -11,7 +12,7 @@
       :resource-name-plural="Locale.locale('servers')"
 
       @edit="editServer"
-      @create="createServer"
+      @create="showForm = !showForm"
       @delete="deleteServer"
   />
 </template>
@@ -25,13 +26,10 @@ import CoverUp from "@/components/CoverUp.vue";
 import {ref} from "vue";
 import ServerForm from "@/sub-views/ServerForm.vue";
 
-const show   = ref(false);
-const server = ref(new Server('Cloud', 'cloud.appwrite.io'));
-const state  = useAppState();
+const showForm = ref(false);
+const server   = ref(new Server('', ''));
 
-function createServer() {
-  show.value = !show.value
-}
+const state = useAppState();
 
 function editServer(title: string) {
   console.log(`Edit ${title}`);
@@ -40,10 +38,4 @@ function editServer(title: string) {
 function deleteServer(title: string) {
   state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
 }
-
-console.log(state.app.servers);
 </script>
-
-<style scoped>
-
-</style>

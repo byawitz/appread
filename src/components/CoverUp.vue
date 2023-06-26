@@ -1,5 +1,30 @@
+<template>
+  <div id="cover-up" @keyup.enter="emits('close')">
+    <Transition name="cover">
+      <div id="cover" v-if="show">
+        <div id="cover-head">
+          <h1>{{ title }}</h1>
+        </div>
+
+        <div id="cover-content">
+          <slot></slot>
+        </div>
+
+        <div id="cover-bottom">
+          <div @click="emits('close')" class="btn btn-text btn-red">{{ Locale.locale('close') }}</div>
+        </div>
+      </div>
+    </Transition>
+
+    <Transition name="up">
+      <div id="up" v-if="show" @click="emits('close')"></div>
+    </Transition>
+  </div>
+</template>
+
 <script setup lang="ts">
 import Locale from "../locale/Locale";
+import {onMounted, onUnmounted} from "vue";
 
 const emits = defineEmits(['close']);
 
@@ -7,26 +32,22 @@ defineProps({
   show : {type: Boolean, default: false},
   title: {type: String, default: 'Cover'}
 });
-</script>
 
-<template>
-  <Transition name="cover">
-    <div id="cover" v-if="show">
-      <div id="cover-head">
-        <h1>{{ title }}</h1>
-      </div>
-      <div id="cover-content">
-        <slot></slot>
-      </div>
-      <div id="cover-bottom">
-        <div @click="emits('close')" class="btn btn-text btn-blue">{{ Locale.locale('close') }}</div>
-      </div>
-    </div>
-  </Transition>
-  <Transition name="up">
-    <div id="up" v-if="show" @click="emits('close')"></div>
-  </Transition>
-</template>
+onMounted(() => {
+  window.addEventListener('keyup', closeOnEsc);
+})
+
+
+onUnmounted(() => {
+  window.addEventListener('keyup', closeOnEsc);
+})
+
+function closeOnEsc(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    emits('close');
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import "../assets/style/include/mixins";

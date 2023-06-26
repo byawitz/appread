@@ -2,20 +2,19 @@
 import {onMounted, watch} from "vue";
 import SideBar from "@/components/SideBar.vue";
 import {useAppState} from "@/stores/State";
-import Server from "@/models/Server";
 
 const state = useAppState();
 
-function setTheme() {
-  document.querySelector('body')!.classList.toggle('light', state.app.isLightTheme);
-}
-
-watch(state.app, setTheme)
 
 onMounted(async () => {
   setTheme();
 });
 
+watch(state.app, setTheme)
+
+function setTheme() {
+  document.querySelector('body')!.classList.toggle('light', state.app.isLightTheme);
+}
 
 </script>
 

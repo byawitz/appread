@@ -56,4 +56,5 @@ export default class Locale {
         location.reload();
     }
 }
+
 Locale.init();

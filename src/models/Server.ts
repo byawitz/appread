@@ -1,4 +1,5 @@
 import Locale from "@/locale/Locale";
+import {getClient, Body, ResponseType} from '@tauri-apps/api/http';
 
 export default class Server {
     public title: string;
@@ -17,9 +18,13 @@ export default class Server {
 
     public async checkAppwrite(): Promise<boolean> {
         try {
-            const res  = await fetch(`${this.https ? 'https' : 'http'}://${this.endpoint}/health/version`);
-            const json = await res.json();
+            const client = await getClient();
 
+            const res: any = await client.get(`${this.https ? 'https' : 'http'}://${this.endpoint}/health/version`, {
+                responseType: ResponseType.JSON,
+            });
+            
+            const json = res.data;
             if (json['version']) {
                 this.version = json['version'];
                 return true;

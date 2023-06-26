@@ -27,7 +27,7 @@ import {onMounted, ref} from "vue";
 import LoadingButton from "@/components/LoadingButton.vue";
 import {useAppState} from "@/stores/State";
 import Helper from "@/utils/Helper";
-import ToastPlugin, {useToast} from "vue-toast-notification";
+import {useToast} from "vue-toast-notification";
 
 const emits = defineEmits(['close']);
 
@@ -49,16 +49,16 @@ onMounted(() => {
   if (props.server!.title !== '') {
     isEdit.value = true;
   }
-  $toast.error(Locale.locale('Server with this name already exists'), {duration: 1000000});
-
 })
 
 function addServer(server: Server) {
   if (state.app.servers.find(s => s.title === server.title) !== undefined) {
     isSavingServer.value = false;
+    $toast.error(Locale.locale('Server with this name already exists'));
+
     return;
   }
-
+  state.app.servers.push(server);
   emits('close');
 }
 

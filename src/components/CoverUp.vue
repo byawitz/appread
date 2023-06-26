@@ -81,7 +81,7 @@ div#cover {
   bottom: 0;
   width: 70%;
   background-color: var(--background-color);
-  z-index: 1234;
+  z-index: 1000;
   border-left: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -119,7 +119,7 @@ div#up {
   bottom: 0;
   width: 30%;
   background-color: #000000b5;
-  z-index: 1234;
+  z-index: 1000;
 }
 
 [dir="rtl"] {

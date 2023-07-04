@@ -1,5 +1,5 @@
 [package]
-name = "appread"
+name = "Appread"
 version = "0.0.1"
 description = "Appwrite SDKs tester"
 authors = ["BoolCode"]

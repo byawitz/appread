@@ -30,7 +30,7 @@ const emits = defineEmits(['close']);
 
 defineProps({
   show : {type: Boolean, default: false},
-  title: {type: String, default: 'Cover'}
+  title: {type: String, default: ''}
 });
 
 onMounted(() => {

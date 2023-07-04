@@ -20,5 +20,11 @@
   "Appwrite_version": "Appwrite version",
   "Add": "Add",
   "close": "Close",
-  "secure": "Secure"
+  "secure": "Secure",
+  "Create Server": "Create Server",
+  "Update Server": "Update Server",
+  "endpoint": "endpoint",
+  "submit": "submit",
+  "All fields must be filled": "All fields must be filled",
+  "Server with this name already exists": "שרת בעל שם זהה כבר קיים"
 }

@@ -1,5 +1,5 @@
 <template>
-  <CoverUp :show="showForm" @close="showForm = false">
+  <CoverUp :show="showForm" @close="showForm = false" :title="getTitle">
     <ServerForm :server="server" @close="showForm = false"/>
   </CoverUp>
 
@@ -23,9 +23,9 @@ import Locale from "@/locale/Locale";
 import {useAppState} from "@/stores/State";
 import Server from "@/models/Server";
 import CoverUp from "@/components/CoverUp.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import ServerForm from "@/sub-views/ServerForm.vue";
-
+import Alert from "@/utils/Alert";
 
 const showForm = ref(false);
 const server   = ref<Server>(new Server());
@@ -34,8 +34,7 @@ const state = useAppState();
 
 function createServer() {
   server.value   = new Server();
-  showForm.value = !showForm.value
-  ;
+  showForm.value = !showForm.value;
 
 }
 
@@ -45,6 +44,10 @@ function editServer(title: string) {
 }
 
 function deleteServer(title: string) {
-  state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
+  Alert.confirm(`${Locale.locale('Delete')} ${title}`, Locale.locale('This action cannot be undone'), Locale.locale('Delete'), () => {
+    state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
+  });
 }
+
+const getTitle = computed(() => server.value.title !== '' ? Locale.locale('Update Server') : Locale.locale('Create Server'));
 </script>

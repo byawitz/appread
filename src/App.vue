@@ -1,3 +1,12 @@
+<template>
+  <div id="wrapper">
+    <SideBar/>
+    <main>
+      <RouterView/>
+    </main>
+  </div>
+</template>
+
 <script setup lang="ts">
 import {onMounted, watch} from "vue";
 import SideBar from "@/components/SideBar.vue";
@@ -18,12 +27,4 @@ function setTheme() {
 
 </script>
 
-<template>
-  <div id="wrapper">
-    <SideBar/>
-    <main>
-      <RouterView/>
-    </main>
-  </div>
-</template>
 

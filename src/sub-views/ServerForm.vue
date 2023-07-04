@@ -10,20 +10,15 @@
       <input type="text" name="endpoint" id="endpoint" v-model="endpoint" required="required">
     </div>
 
-    <div class="form-block">
-      <label for="version">{{ Locale.locale('version') }}</label>
-      <input type="text" name="version" id="version" v-model="version" disabled="disabled">
-    </div>
-
     <LoadingButton :is-loading="isSavingServer" :text="Locale.locale('submit')" @click="saveServer"/>
   </form>
 </template>
 
 <script setup lang="ts">
 import type {PropType} from "vue";
+import {onMounted, ref} from "vue";
 import Server from "@/models/Server";
 import Locale from "../locale/Locale";
-import {onMounted, ref} from "vue";
 import LoadingButton from "@/components/LoadingButton.vue";
 import {useAppState} from "@/stores/State";
 import Helper from "@/utils/Helper";
@@ -40,7 +35,6 @@ const $toast = useToast();
 
 const title    = ref(props.server!.title);
 const endpoint = ref(props.server!.endpoint);
-const version  = ref(props.server!.version);
 
 const isSavingServer = ref(false);
 const isEdit         = ref(false);
@@ -53,20 +47,33 @@ onMounted(() => {
 
 function addServer(server: Server) {
   if (state.app.servers.find(s => s.title === server.title) !== undefined) {
-    isSavingServer.value = false;
     $toast.error(Locale.locale('Server with this name already exists'));
 
     return;
   }
-  state.app.servers.push(server);
-  emits('close');
+
+  insertSerer(server);
 }
 
 function updateServer(server: Server) {
+  state.app.servers.splice(state.app.servers.findIndex(s => s.title === server.title), 1);
+
+  insertSerer(server);
+}
+
+function insertSerer(server: Server) {
+  state.app.servers.push(server);
+  emits('close');
 
 }
 
 async function saveServer() {
+  if (endpoint.value === '' || title.value === '') {
+    $toast.error(Locale.locale('All fields must be filled'));
+
+    return;
+  }
+
   isSavingServer.value = true;
 
   const server = new Server(title.value, Helper.getAppwriteEndpoint(endpoint.value));
@@ -78,5 +85,7 @@ async function saveServer() {
       addServer(server);
     }
   }
+
+  isSavingServer.value = false;
 }
 </script>

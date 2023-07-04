@@ -1,5 +1,5 @@
 import Locale from "@/locale/Locale";
-import {getClient, Body, ResponseType} from '@tauri-apps/api/http';
+import {getClient, ResponseType} from '@tauri-apps/api/http';
 
 export default class Server {
     public title: string;

@@ -20,5 +20,11 @@
   "Appwrite_version": "גרסת Appwrite",
   "Add": "הוספת",
   "close": "סגירה",
-  "secure": "מאובטח"
+  "secure": "מאובטח",
+  "Create Server": "יצירת שרת",
+  "Update Server": "עדכון שרת",
+  "endpoint": "כתובת היעד",
+  "submit": "שליחה",
+  "All fields must be filled": "יש למלאות את כל השדות",
+  "Server with this name already exists": "שרת בעל שם זהה כבר קיים"
 }

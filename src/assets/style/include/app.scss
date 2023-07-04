@@ -1,5 +1,5 @@
-html, body {
-  height: 100%;
+html, body,html body.swal2-height-auto {
+  height: 100% !important;
 }
 
 b {

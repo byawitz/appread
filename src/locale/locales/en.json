@@ -31,5 +31,6 @@
   "Deleting": "Deleting",
   "OK": "OK",
   "No": "No",
-  "This action cannot be undone": "This action cannot be undone"
+  "This action cannot be undone": "This action cannot be undone",
+  "Cannot connect to server. Double check the entered details.": "Cannot connect to server. Double check the entered details."
 }

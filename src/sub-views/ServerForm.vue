@@ -84,6 +84,8 @@ async function saveServer() {
     } else {
       addServer(server);
     }
+  } else {
+    $toast.error(Locale.locale('Cannot connect to server. Double check the entered details.'));
   }
 
   isSavingServer.value = false;

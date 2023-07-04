@@ -31,5 +31,6 @@
   "Deleting": "למחוק את",
   "OK": "בסדר",
   "No": "לא",
-  "This action cannot be undone": "פעולה זו אינה ניתנת לביטול"
+  "This action cannot be undone": "פעולה זו אינה ניתנת לביטול",
+  "Cannot connect to server. Double check the entered details.": "לא ניתן להתחבר לשרת. יש לבדוק שוב את הפרטים שהוזנו."
 }

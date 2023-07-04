@@ -13,4 +13,14 @@ export default class Helper {
 
         return `${url}/v1`;
     }
+
+    public static makeSureHasHTTPS(url: string) {
+        let prefix = '';
+
+        if (url.indexOf('http') !== 0) {
+            prefix = 'https://';
+        }
+
+        return `${prefix}${url}`;
+    }
 }

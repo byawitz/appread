@@ -26,5 +26,10 @@
   "endpoint": "כתובת היעד",
   "submit": "שליחה",
   "All fields must be filled": "יש למלאות את כל השדות",
-  "Server with this name already exists": "שרת בעל שם זהה כבר קיים"
+  "Server with this name already exists": "שרת בעל שם זהה כבר קיים",
+  "Delete": "מחיקה",
+  "Deleting": "למחוק את",
+  "OK": "בסדר",
+  "No": "לא",
+  "This action cannot be undone": "פעולה זו אינה ניתנת לביטול"
 }

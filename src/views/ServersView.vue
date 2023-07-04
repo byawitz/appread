@@ -44,7 +44,7 @@ function editServer(title: string) {
 }
 
 function deleteServer(title: string) {
-  Alert.confirm(`${Locale.locale('Delete')} ${title}`, Locale.locale('This action cannot be undone'), Locale.locale('Delete'), () => {
+  Alert.confirm(`${Locale.locale('Deleting')} ${title}?`, Locale.locale('This action cannot be undone'), Locale.locale('Delete'), () => {
     state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
   });
 }

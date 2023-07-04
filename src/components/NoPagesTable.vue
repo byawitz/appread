@@ -12,8 +12,13 @@
       <tbody v-if="data.length > 0">
       <tr v-for="single in data" :key="single.title">
         <th v-for="df in dataFields" :key="`${single.title}-${df}`">
+
           <template v-if="codeableFields.includes(df)">
             <span class="code">{{ single[df] }}</span>
+          </template>
+
+          <template v-else-if="linkableFields.includes(df)">
+            <a :href="Helper.makeSureHasHTTPS(single[df])" target="_blank">{{ single[df] }} <i class="fa fa-external-link"></i></a>
           </template>
 
           <template v-else>
@@ -62,6 +67,7 @@
 <script setup lang="ts">
 import type {PropType} from "vue";
 import Locale from "../locale/Locale";
+import Helper from "@/utils/Helper";
 
 const emits = defineEmits(['edit', 'delete', 'create']);
 
@@ -75,6 +81,10 @@ defineProps({
 
 const codeableFields = [
   'version'
+];
+
+const linkableFields = [
+  'endpoint'
 ];
 </script>
 
@@ -153,5 +163,11 @@ const codeableFields = [
   }
 }
 
-
+a i{
+  display: inline-block;
+  background-color: var(--dark-background);
+  padding: 9px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border-color);
+}
 </style>

@@ -26,5 +26,10 @@
   "endpoint": "endpoint",
   "submit": "submit",
   "All fields must be filled": "All fields must be filled",
-  "Server with this name already exists": "שרת בעל שם זהה כבר קיים"
+  "Server with this name already exists": "שרת בעל שם זהה כבר קיים",
+  "Delete": "Delete",
+  "Deleting": "Deleting",
+  "OK": "OK",
+  "No": "No",
+  "This action cannot be undone": "This action cannot be undone"
 }

@@ -92,7 +92,7 @@ div#cover {
   }
 
   #cover-head {
-    height: 6%;
+    height: 10%;
     border-bottom: 1px solid var(--border-color);
     font-size: 20px;
     display: flex;

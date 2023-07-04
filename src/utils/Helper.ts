@@ -1,4 +1,5 @@
 import type {Router} from "vue-router";
+import type Server from "@/models/Server";
 
 export default class Helper {
     public static async goTo(where: string, router: Router): Promise<void> {
@@ -22,5 +23,9 @@ export default class Helper {
         }
 
         return `${prefix}${url}`;
+    }
+
+    public static getFullEndpoint(server: Server): string {
+        return `${server.https ? 'https' : 'http'}://${server.endpoint}`;
     }
 }

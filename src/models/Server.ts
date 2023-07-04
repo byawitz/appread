@@ -1,5 +1,6 @@
 import Locale from "@/locale/Locale";
 import {getClient, ResponseType} from '@tauri-apps/api/http';
+import Helper from "@/utils/Helper";
 
 export default class Server {
     public title: string;
@@ -20,17 +21,17 @@ export default class Server {
         try {
             const client = await getClient();
 
-            const res: any = await client.get(`${this.https ? 'https' : 'http'}://${this.endpoint}/health/version`, {
+            const res: any = await client.get(`${Helper.getFullEndpoint(this)}/health/version`, {
                 responseType: ResponseType.JSON,
             });
-            
+
             const json = res.data;
             if (json['version']) {
                 this.version = json['version'];
                 return true;
             }
         } catch (e) {
-            /**/
+            /* TODO: maybe add logger */
         }
 
         return false;
@@ -53,4 +54,5 @@ export default class Server {
             'secure'
         ];
     }
+
 }

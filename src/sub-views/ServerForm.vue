@@ -56,7 +56,13 @@ function addServer(server: Server) {
 }
 
 function updateServer(server: Server) {
-  state.app.servers.splice(state.app.servers.findIndex(s => s.title === server.title), 1);
+  state.app.servers.splice(state.app.servers.findIndex(s => s.title === props.server!.title), 1);
+
+  state.app.projects.forEach((project) => {
+    if (project.server.title === props.server!.title) {
+      project.server = server;
+    }
+  })
 
   insertSerer(server);
 }

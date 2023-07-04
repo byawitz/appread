@@ -4,22 +4,27 @@
     <div class="ar-form-block">
       <label for="language">{{ Locale.locale('Language') }}</label>
 
-      <select @change="Locale.saveLocale(language)" name="language" id="language" v-model="language">
-        <option
-            v-for="locale in Locale.availableLocales"
-            :key="locale.name"
-            :value="locale.name"
-            v-text="locale.title"
-        />
-      </select>
+      <div class="select-holder">
+        <select @change="Locale.saveLocale(language)" name="language" id="language" v-model="language">
+          <option
+              v-for="locale in Locale.availableLocales"
+              :key="locale.name"
+              :value="locale.name"
+              v-text="locale.title"
+          />
+        </select>
+      </div>
     </div>
 
     <div class="ar-form-block">
       <label for="choose-theme">{{ Locale.locale('chooseTheme') }}</label>
-      <select v-model="theme" name="choose-theme" id="choose-theme" @change="updateTheme">
-        <option value="dark">{{ Locale.locale('darkDefault') }}</option>
-        <option value="light">{{ Locale.locale('light') }}</option>
-      </select>
+
+      <div class="select-holder">
+        <select v-model="theme" name="choose-theme" id="choose-theme" @change="updateTheme">
+          <option value="dark">{{ Locale.locale('darkDefault') }}</option>
+          <option value="light">{{ Locale.locale('light') }}</option>
+        </select>
+      </div>
     </div>
   </div>
 </template>

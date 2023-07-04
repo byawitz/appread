@@ -21,6 +21,14 @@
             <a :href="Helper.makeSureHasHTTPS(single[df])" target="_blank">{{ single[df] }} <i class="fa fa-external-link"></i></a>
           </template>
 
+          <template v-else-if="shortableFields.includes(df)">
+            {{ `${single[df].slice(0, 15)}...` }}
+          </template>
+
+          <template v-else-if="titleableFields.includes(df)">
+            {{ single[df].title }}
+          </template>
+
           <template v-else>
             {{ single[df] }}
           </template>
@@ -51,7 +59,7 @@
       <tr>
         <th :colspan="dataFields.length + 1">
           <div>
-            <div class="summary"><h4>{{ resourceNamePlural }}</h4> <h5>{{ Locale.locale('total') }}: <span>{{ data.length }}</span></h5></div>
+            <div class="summary"><h4>{{ resourceNamePlural }}</h4><h5>{{ Locale.locale('total') }}: <span>{{ data.length }}</span></h5></div>
 
             <div class="action">
               <div @click="emits('create')" class="btn btn-blue btn-text"><i class="fa fa-plus"></i> {{ Locale.locale('Add') }} {{ resourceName }}</div>
@@ -85,6 +93,14 @@ const codeableFields = [
 
 const linkableFields = [
   'endpoint'
+];
+
+const shortableFields = [
+  'apiKey'
+];
+
+const titleableFields = [
+  'server'
 ];
 </script>
 
@@ -129,7 +145,7 @@ const linkableFields = [
     align-items: center;
 
     .summary {
-      gap: 10px;
+      gap: 5px;
       align-items: baseline;
       display: flex;
 
@@ -163,7 +179,7 @@ const linkableFields = [
   }
 }
 
-a i{
+a i {
   display: inline-block;
   background-color: var(--dark-background);
   padding: 9px 9px;

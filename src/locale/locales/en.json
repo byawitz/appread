@@ -23,7 +23,7 @@
   "secure": "Secure",
   "Create Server": "Create Server",
   "Update Server": "Update Server",
-  "endpoint": "endpoint",
+  "endpoint": "Endpoint",
   "submit": "submit",
   "All fields must be filled": "All fields must be filled",
   "Server with this name already exists": "שרת בעל שם זהה כבר קיים",
@@ -32,5 +32,13 @@
   "OK": "OK",
   "No": "No",
   "This action cannot be undone": "This action cannot be undone",
-  "Cannot connect to server. Double check the entered details.": "Cannot connect to server. Double check the entered details."
+  "Cannot connect to server. Double check the entered details.": "Cannot connect to server. Double check the entered details.",
+  "project": "project",
+  "Create Project": "Create Project",
+  "Update Project": "Update Project",
+  "project id": "Project id",
+  "apiKey": "API Key",
+  "select server": "Select server",
+  "Cannot connect to project": "Cannot connect to project",
+  "Deleting server will delete all projects, actions and flow using this server": "Deleting server will delete all projects, actions and flow using this server"
 }

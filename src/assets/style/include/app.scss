@@ -1,4 +1,4 @@
-html, body,html body.swal2-height-auto {
+html, body, html body.swal2-height-auto {
   height: 100% !important;
 }
 
@@ -214,6 +214,10 @@ div#home {
   &.btn-text {
     width: unset;
     height: unset;
+    padding: 10px;
+    i{
+      margin-right:10px;
+    }
   }
 
   &.btn-green {
@@ -269,7 +273,13 @@ div#home {
     font-size: 16px;
   }
 
-  input {
+  .select-holder {
+    select {
+      width: 100%;
+    }
+  }
+
+  input, .select-holder {
     background-color: var(--background-color);
     flex: 4;
     border: 1px solid var(--border-color);
@@ -281,5 +291,20 @@ div#home {
       cursor: not-allowed;
     }
   }
+}
 
+.select-holder {
+  position: relative;
+
+  &:after {
+    content: "\f107";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    right: 12px;
+  }
 }

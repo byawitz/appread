@@ -23,7 +23,7 @@ export default class Locale {
 
     public static locale(str: string): string {
         if (this.availableLocales[this.currentLocale].localeStrings[str] === undefined) {
-            console.debug(`${str} is not translated yet`)
+            console.debug(`🔧: ${str} is not translated yet`)
         }
         return this.availableLocales[this.currentLocale].localeStrings[str] ?? str;
     }

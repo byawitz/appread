@@ -44,7 +44,13 @@ function editServer(title: string) {
 }
 
 function deleteServer(title: string) {
-  Alert.confirm(`${Locale.locale('Deleting')} ${title}?`, Locale.locale('This action cannot be undone'), Locale.locale('Delete'), () => {
+  Alert.confirm(`${Locale.locale('Deleting')} ${title}?`, `${Locale.locale('Deleting server will delete all projects, actions and flow using this server.')}\n${Locale.locale('This action cannot be undone')}`, Locale.locale('Delete'), () => {
+    // TODO: Delete actions & flows.
+
+    state.app.projects.filter(p => p.server.title === title).forEach((project) => {
+      state.app.projects.splice(state.app.projects.findIndex(p => p.title === project.title), 1);
+    });
+
     state.app.servers.splice(state.app.servers.findIndex(server => server.title === title), 1);
   });
 }

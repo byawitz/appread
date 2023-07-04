@@ -32,5 +32,13 @@
   "OK": "בסדר",
   "No": "לא",
   "This action cannot be undone": "פעולה זו אינה ניתנת לביטול",
-  "Cannot connect to server. Double check the entered details.": "לא ניתן להתחבר לשרת. יש לבדוק שוב את הפרטים שהוזנו."
+  "Cannot connect to server. Double check the entered details.": "לא ניתן להתחבר לשרת. יש לבדוק שוב את הפרטים שהוזנו.",
+  "project": "פרויקט",
+  "Create Project": "יצירת פרויקט",
+  "Update Project": "עדכון פרויקט",
+  "project id": "מזהה פרויקט",
+  "apiKey": "מפתח API",
+  "select server": "בחירת שרת",
+  "Cannot connect to project": "לא ניתן להתחבר לפרויקט",
+  "Deleting server will delete all projects, actions and flow using this server": "מחיקה של השרת תגרום למחיקה של כל הפרויקטים, הפעולות והתזרימים המקושרים לשרת זה."
 }

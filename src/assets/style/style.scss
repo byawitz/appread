@@ -5,3 +5,7 @@
 @import "./include/vars";
 @import "./include/mixins";
 @import "./include/app";
+
+html[dir=rtl] {
+  @import "./include/rtl";
+}

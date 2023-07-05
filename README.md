@@ -4,7 +4,8 @@
 
 ## All-in-one Appwrite SDKs tester
 
-## Add locale
+<details>
+<summary>Add locale</summary>
 
 To add locale follow these steps. will demonstrate on Spanish.
 
@@ -30,4 +31,6 @@ const LOCALE_ES = 'es';
     [LOCALE_ES]: new SingleLocale(LOCALE_ES, 'Español', es)
 }
 ```
+
 That's it.
+</details>

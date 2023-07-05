@@ -11,7 +11,7 @@
 
       <tbody v-if="data.length > 0">
       <tr v-for="single in data" :key="single.title">
-        <th v-for="df in dataFields" :key="`${single.title}-${df}`">
+        <td v-for="df in dataFields" :key="`${single.title}-${df}`">
 
           <template v-if="codeableFields.includes(df)">
             <span class="code">{{ single[df] }}</span>
@@ -32,7 +32,7 @@
           <template v-else>
             {{ single[df] }}
           </template>
-        </th>
+        </td>
 
         <td>
           <div class="btn btn-green" @click="emits('edit',single.title)"><i class="fa fa-edit"></i></div>
@@ -109,21 +109,18 @@ const titleableFields = [
 
 
 .table-holder {
-  border: 1px solid var(--border-color);
-  border-radius: 15px;
-  overflow: hidden;
   max-width: 1200px;
 
   table {
     width: 100%;
 
-    tr td, tr th {
-      padding: 10px;
-    }
 
-    thead th, tfoot th {
-      background-color: var(--dark-background);
-      padding: 15px 10px;
+    thead th{
+      font-weight: bold;
+    }
+    thead th, tfoot th, tbody td {
+      border: 1px solid var(--border-color);
+      padding: 10px;
     }
   }
 
@@ -133,7 +130,6 @@ const titleableFields = [
       border-bottom: 1px solid var(--border-color);
 
       &:nth-child(odd) {
-        background-color: var(--second-background-color);
       }
     }
   }

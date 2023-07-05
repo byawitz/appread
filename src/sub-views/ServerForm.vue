@@ -2,12 +2,12 @@
   <form @submit="saveServer">
     <div class="form-block">
       <label for="title">{{ Locale.locale('title') }}</label>
-      <input type="text" name="title" id="title" v-model="title" required="required">
+      <input type="text" name="title" id="title" v-model="title" required="required"  autocomplete="disabled">
     </div>
 
     <div class="form-block">
       <label for="endpoint">{{ Locale.locale('endpoint') }}</label>
-      <input type="text" name="endpoint" id="endpoint" v-model="endpoint" required="required">
+      <input type="text" name="endpoint" id="endpoint" v-model="endpoint" required="required" autocomplete="disabled">
     </div>
 
     <LoadingButton :is-loading="isSavingServer" :text="Locale.locale('submit')" @click="saveServer"/>

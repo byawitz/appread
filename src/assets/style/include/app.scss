@@ -43,7 +43,7 @@ div#sidebar {
   max-width: 100px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border-color);
+  border-inline-end: 1px solid var(--border-color);
   z-index: 1;
 
   div#menu-items {
@@ -215,8 +215,9 @@ div#home {
     width: unset;
     height: unset;
     padding: 10px;
-    i{
-      margin-right:10px;
+
+    i {
+      margin-inline-end: 10px;
     }
   }
 

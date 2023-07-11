@@ -309,3 +309,159 @@ div#home {
     right: 12px;
   }
 }
+
+
+div#actions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+
+  .action {
+    width: 200px;
+    background-color: var(--dark-background);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transform: scale(1);
+
+    &:hover {
+      background-color: var(--second-background-color);
+      transform: scale(1.02);
+    }
+
+    .action-icon {
+      font-size: 30px;
+    }
+
+    .action-details {
+      text-align: center;
+      padding: 20px 20px 0;
+    }
+
+
+    .action-type {
+      margin-bottom: 10px;
+    }
+
+    .action-type, .action-icon {
+      color: var(--color-success);
+    }
+
+    .action-title {
+      font-size: 120%;
+    }
+
+    .action-project-version {
+      margin: 10px 0 25px;
+
+    }
+  }
+}
+
+.big-search {
+  background-color: var(--dark-background);
+  padding: 10px;
+  border-radius: 9px;
+  border: 1px solid var(--border-color);
+  font-size: 19px;
+
+  input {
+    width: 100%;
+  }
+}
+
+.action {
+  &.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .aa-over {
+    overflow: hidden;
+    scale: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+
+  .add-action {
+    background-color: var(--second-background-color);
+    display: flex;
+    width: 50px;
+    border: 1px solid var(--border-color);
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    transition: all 250ms;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &:hover {
+    .add-action {
+      width: 150px;
+      border-radius: 15px;
+      background-color: var(--dark-background);
+    }
+
+    .aa-idle {
+      animation: to-right 250ms 1 forwards ease-in-out;
+    }
+
+    .aa-over {
+      animation: to-left 250ms 1 reverse forwards ease-in-out;
+    }
+  }
+}
+
+@keyframes to-left {
+  0% {
+    overflow: unset;
+    scale: 1;
+    max-width: unset;
+    max-height: unset;
+  }
+
+  1% {
+    opacity: 1;
+
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    overflow: hidden;
+    scale: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes to-right {
+  0% {
+    overflow: unset;
+    scale: 1;
+    max-width: unset;
+    max-height: unset;
+
+  }
+  1% {
+    opacity: 1;
+
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    overflow: hidden;
+    scale: 0;
+    max-width: 0;
+    max-height: 0;
+  }
+}

@@ -7,7 +7,7 @@
     "withGlobalTauri"   : true
   },
   "package": {
-    "productName": "appread",
+    "productName": "Appread",
     "version"    : "0.0.1"
   },
   "tauri"  : {

@@ -44,12 +44,23 @@ export default class Api {
         },
     }
 
+    private static cached: Record<ActionScope, Record<any, any>> = {
+        'client': {},
+        'server': {},
+    };
+
     public static giveMeAPI(scope: ActionScope, completeVersion: string) {
-        const version                = semver.parse(completeVersion);
+        const version = semver.parse(completeVersion);
+        const api     = `${version?.major}.${version?.minor}`;
+
+        if (this.cached[scope][api] !== undefined) {
+            return this.cached[scope][api];
+        }
+
         const apis: Record<any, any> = {};
 
         try {
-            const apiVersion = this.apis[scope][`${version?.major}.${version?.minor}`];
+            const apiVersion = this.apis[scope][api];
 
             Object.entries(apiVersion.paths).forEach(entry => {
                 const [route, endpoints] = entry;
@@ -63,6 +74,8 @@ export default class Api {
                     apis[request.tags[0]].push({...request, method, route});
                 });
             });
+
+            this.cached[scope][api] = apis;
         } catch (e) {
             /* TODO: maybe add logger */
         }

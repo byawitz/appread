@@ -21,7 +21,7 @@ import Server0_15 from './specs/open-api3-0.15.x-server.json';
 
 
 export default class Api {
-    private static apis = {
+    private static apis: Record<ActionScope, Record<any, any>> = {
         'server': {
             '1.0' : Server1_0,
             '1.1' : Server1_1,
@@ -62,9 +62,10 @@ export default class Api {
         try {
             const apiVersion = this.apis[scope][api];
 
-            Object.entries(apiVersion.paths).forEach(entry => {
+            Object.entries(apiVersion.paths).forEach((entry: [string, any]) => {
                 const [route, endpoints] = entry;
-                Object.entries(endpoints).forEach((endpoint) => {
+
+                Object.entries(endpoints).forEach((endpoint: [string, any]) => {
                     const [method, request] = endpoint;
 
                     if (!apis[request.tags[0]]) {

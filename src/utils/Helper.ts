@@ -9,6 +9,7 @@ export default class Helper {
     public static getAppwriteEndpoint(url: string) {
         url = url.replace('http://', '');
         url = url.replace('https://', '');
+        url = url.replace(/^[\/]+/, '');
         url = url.replace(/\/.+/g, '');
         url = url.replace(/\/+$/g, '');
 

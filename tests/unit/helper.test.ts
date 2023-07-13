@@ -12,7 +12,7 @@ describe('Getting Appwrite endpoint', () => {
         expect(Helper.getAppwriteEndpoint('http://cloud.appwrite.io/v2')).toEqual(noProtocolEndpoint)
         expect(Helper.getAppwriteEndpoint('cloud.appwrite.io/b42')).toEqual(noProtocolEndpoint)
         expect(Helper.getAppwriteEndpoint('http://cloud.appwrite.io')).toEqual(noProtocolEndpoint)
-        expect(Helper.getAppwriteEndpoint('cloud.appwrite.io')).toEqual(noProtocolEndpoint)
+        expect(Helper.getAppwriteEndpoint('///////////cloud.appwrite.io///////')).toEqual(noProtocolEndpoint)
     });
 
     test('Get final endpoint ', () => {

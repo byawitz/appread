@@ -1,22 +1,24 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "module": "esnext",
-  "target": "esnext",
-  "include": [
+  "extends"        : "@vue/tsconfig/tsconfig.dom.json",
+  "module"         : "esnext",
+  "target"         : "esnext",
+  "include"        : [
     "env.d.ts",
     "src/**/*",
     "src/**/*.vue",
     "src/**/*.ts",
-    "src/**/*.json"
+    "src/**/*.json",
+    "tests/**/*.ts"
   ],
-  "exclude": [
-    "src/**/__tests__/*"
+  "exclude"        : [
+    "src/**/__tests__/*",
+    "tests/**/*"
   ],
   "compilerOptions": {
     "resolveJsonModule": true,
-    "composite": true,
-    "baseUrl": ".",
-    "paths": {
+    "composite"        : true,
+    "baseUrl"          : ".",
+    "paths"            : {
       "@/*": [
         "./src/*"
       ]

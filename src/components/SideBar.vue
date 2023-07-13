@@ -31,7 +31,3 @@ function isCurrentPage(where: string): boolean {
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>

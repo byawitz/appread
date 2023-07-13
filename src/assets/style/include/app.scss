@@ -347,8 +347,16 @@ div#actions-list {
       margin-bottom: 10px;
     }
 
-    .action-type, .action-icon {
-      color: var(--color-success);
+    &.client {
+      .action-type, .action-icon {
+        color: var(--color-success);
+      }
+    }
+
+    &.server {
+      .action-type, .action-icon {
+        color: var(--color-danger);
+      }
     }
 
     .action-title {
@@ -419,6 +427,54 @@ div#actions-list {
     }
   }
 }
+
+.form-block-switch {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+
+  .fbs-title {
+    flex: 1;
+  }
+
+  .fbs-options {
+    flex: 4;
+    display: flex;
+    gap: 20px;
+
+    .fbs {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 18px;
+      padding: 15px 30px;
+      gap: 5px;
+      border: 1px solid var(--border-color);
+      background-color: var(--background-color);
+      border-radius: 8px;
+      color: var(--second-background-color);
+      cursor: pointer;
+      transition: all 220ms;
+
+      &:hover {
+        color: var(--text-color);
+      }
+
+      &.selected {
+        color: var(--text-color);
+        background-color: var(--dark-background);
+      }
+
+      i {
+        font-size: 40px;
+      }
+
+    }
+
+  }
+
+}
+
 
 @keyframes to-left {
   0% {

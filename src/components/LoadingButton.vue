@@ -14,11 +14,7 @@
 const emits = defineEmits(['click']);
 
 defineProps({
-  text     : {type: String, required: true},
-  isLoading: {type: Boolean, default: false},
+  text     : {scope: String, required: true},
+  isLoading: {scope: Boolean, default: false},
 });
 </script>
-
-<style scoped>
-
-</style>

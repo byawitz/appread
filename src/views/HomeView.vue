@@ -45,7 +45,3 @@ const allowedForBox = computed(() => {
 
 
 </script>
-
-<style scoped>
-
-</style>

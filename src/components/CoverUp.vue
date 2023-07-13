@@ -29,8 +29,8 @@ import {onMounted, onUnmounted} from "vue";
 const emits = defineEmits(['close']);
 
 defineProps({
-  show : {type: Boolean, default: false},
-  title: {type: String, default: ''}
+  show : {scope: Boolean, default: false},
+  title: {scope: String, default: ''}
 });
 
 onMounted(() => {

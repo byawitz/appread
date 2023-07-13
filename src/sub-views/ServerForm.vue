@@ -27,7 +27,7 @@ import {useToast} from "vue-toast-notification";
 const emits = defineEmits(['close']);
 
 const props = defineProps({
-  server: {type: Object as PropType<Server>, required: true}
+  server: {scope: Object as PropType<Server>, required: true}
 });
 
 const state  = useAppState();

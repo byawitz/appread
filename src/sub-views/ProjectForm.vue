@@ -37,7 +37,6 @@
 </template>
 
 <script setup lang="ts">
-import type {PropType} from "vue";
 import {computed, onMounted, ref} from "vue";
 import Locale from "../locale/Locale";
 import LoadingButton from "@/components/LoadingButton.vue";
@@ -50,26 +49,28 @@ const emits = defineEmits(['close']);
 
 const NO_SERVER = '-1';
 
-const props = defineProps({
-  project: {type: Object as PropType<Project>, required: true}
-});
+const props = defineProps<{ project: Project }>();
 
 const state  = useAppState();
 const $toast = useToast();
 
-const currentServer = props.project!.server.title !== '' ? props.project!.server.title : undefined;
+const currentServer = props.project.server.title !== '' ? props.project.server.title : undefined;
 
 const server    = ref(currentServer ?? NO_SERVER);
-const title     = ref(props.project!.title);
-const apiKey    = ref(props.project!.apiKey);
-const projectId = ref(props.project!.projectId);
+const title     = ref(props.project.title);
+const apiKey    = ref(props.project.apiKey);
+const projectId = ref(props.project.projectId);
 
 const isSavingProject = ref(false);
 const isEdit          = ref(false);
 
 onMounted(() => {
-  if (props.project!.title !== '') {
+  if (props.project.title !== '') {
     isEdit.value = true;
+  }
+
+  if (state.app.servers.length >= 1) {
+    server.value = state.app.servers[0].title;
   }
 })
 
@@ -84,7 +85,7 @@ function addProject(project: Project) {
 }
 
 function updateProject(project: Project) {
-  state.app.projects.splice(state.app.projects.findIndex(p => p.title === props.project!.title), 1);
+  state.app.projects.splice(state.app.projects.findIndex(p => p.title === props.project.title), 1);
 
   insertProject(project);
 }

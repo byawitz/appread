@@ -34,6 +34,7 @@ defineProps({
 });
 
 onMounted(() => {
+
   window.addEventListener('keyup', closeOnEsc);
 })
 

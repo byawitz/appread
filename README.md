@@ -4,8 +4,10 @@
 
 ## All-in-one Appwrite SDKs tester
 
+### Add locale
+
 <details>
-<summary>Add locale</summary>
+<summary>Instructions</summary>
 
 To add locale follow these steps. will demonstrate on Spanish.
 

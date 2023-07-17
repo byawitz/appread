@@ -440,24 +440,26 @@ div#actions-list {
   .fbs-options {
     flex: 4;
     display: flex;
-    gap: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
 
     .fbs {
       display: flex;
-      flex-direction: column;
       text-align: center;
-      font-size: 18px;
-      padding: 15px 30px;
+      align-items: center;
+      font-size: 16px;
+      padding: 10px;
+
       gap: 5px;
       border: 1px solid var(--border-color);
       background-color: var(--background-color);
       border-radius: 8px;
-      color: var(--second-background-color);
+      color: var(--text-color);
       cursor: pointer;
       transition: all 220ms;
 
       &:hover {
-        color: var(--text-color);
+        background-color: var(--second-background-color);
       }
 
       &.selected {
@@ -466,7 +468,7 @@ div#actions-list {
       }
 
       i {
-        font-size: 40px;
+        font-size: 18px;
       }
 
     }
